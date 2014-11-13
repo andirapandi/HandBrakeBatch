@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BatchEncode.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="sourcepath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="targetpath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="handbrakepath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="commandline" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-f mp4 -X 1024 -e x264 -q 20 -E faac -B 128</Value>
+    </Setting>
+    <Setting Name="fileextensions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.mp4,.wmv,.mkv,.mpeg</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
