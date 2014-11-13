@@ -1,6 +1,6 @@
 ﻿namespace BatchEncode
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Label5 = new System.Windows.Forms.Label();
             this.ButtonBrowseHandbrake = new System.Windows.Forms.Button();
             this.ButtonStart = new System.Windows.Forms.Button();
@@ -45,6 +46,10 @@
             this.labelStatus = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxFileExtensions = new System.Windows.Forms.TextBox();
+            this.checkBoxOverwriteTarget = new System.Windows.Forms.CheckBox();
+            this.checkBoxFFileExtension = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBoxIncludeSubfolders = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Label5
@@ -73,6 +78,7 @@
             this.ButtonStart.Size = new System.Drawing.Size(75, 23);
             this.ButtonStart.TabIndex = 24;
             this.ButtonStart.Text = "start";
+            this.toolTip1.SetToolTip(this.ButtonStart, "Start/Stop\r\n(Stop will not stop current encoding but just qeued encoding.)");
             this.ButtonStart.UseVisualStyleBackColor = true;
             this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
@@ -107,7 +113,7 @@
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(48, 65);
+            this.Label2.Location = new System.Drawing.Point(48, 70);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(34, 13);
             this.Label2.TabIndex = 19;
@@ -115,7 +121,7 @@
             // 
             // ButtonBrowseTarget
             // 
-            this.ButtonBrowseTarget.Location = new System.Drawing.Point(310, 81);
+            this.ButtonBrowseTarget.Location = new System.Drawing.Point(310, 86);
             this.ButtonBrowseTarget.Name = "ButtonBrowseTarget";
             this.ButtonBrowseTarget.Size = new System.Drawing.Size(25, 20);
             this.ButtonBrowseTarget.TabIndex = 18;
@@ -164,7 +170,7 @@
             // TextBoxTarget
             // 
             this.TextBoxTarget.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::BatchEncode.Properties.Settings.Default, "targetpath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxTarget.Location = new System.Drawing.Point(51, 81);
+            this.TextBoxTarget.Location = new System.Drawing.Point(51, 86);
             this.TextBoxTarget.Name = "TextBoxTarget";
             this.TextBoxTarget.Size = new System.Drawing.Size(253, 20);
             this.TextBoxTarget.TabIndex = 17;
@@ -205,11 +211,48 @@
             this.textBoxFileExtensions.TabIndex = 29;
             this.textBoxFileExtensions.Text = global::BatchEncode.Properties.Settings.Default.fileextensions;
             // 
-            // Form1
+            // checkBoxOverwriteTarget
+            // 
+            this.checkBoxOverwriteTarget.AutoSize = true;
+            this.checkBoxOverwriteTarget.Location = new System.Drawing.Point(310, 187);
+            this.checkBoxOverwriteTarget.Name = "checkBoxOverwriteTarget";
+            this.checkBoxOverwriteTarget.Size = new System.Drawing.Size(105, 17);
+            this.checkBoxOverwriteTarget.TabIndex = 31;
+            this.checkBoxOverwriteTarget.Text = "Overwrite Target";
+            this.toolTip1.SetToolTip(this.checkBoxOverwriteTarget, "Whether to overwrite or skip overwriting\r\nfor existing files in output folder.");
+            this.checkBoxOverwriteTarget.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxFFileExtension
+            // 
+            this.checkBoxFFileExtension.AutoSize = true;
+            this.checkBoxFFileExtension.Location = new System.Drawing.Point(310, 210);
+            this.checkBoxFFileExtension.Name = "checkBoxFFileExtension";
+            this.checkBoxFFileExtension.Size = new System.Drawing.Size(122, 17);
+            this.checkBoxFFileExtension.TabIndex = 32;
+            this.checkBoxFFileExtension.Text = "Use -f File Extension";
+            this.toolTip1.SetToolTip(this.checkBoxFFileExtension, "If this option is checked, use the extension\r\nas specified in command line option" +
+        " -f,\r\nlike mp4 for option -f mp4, else use original file\r\nending.");
+            this.checkBoxFFileExtension.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIncludeSubfolders
+            // 
+            this.checkBoxIncludeSubfolders.AutoSize = true;
+            this.checkBoxIncludeSubfolders.Location = new System.Drawing.Point(310, 233);
+            this.checkBoxIncludeSubfolders.Name = "checkBoxIncludeSubfolders";
+            this.checkBoxIncludeSubfolders.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxIncludeSubfolders.TabIndex = 33;
+            this.checkBoxIncludeSubfolders.Text = "Include Subfolders";
+            this.toolTip1.SetToolTip(this.checkBoxIncludeSubfolders, "Include Subfolders");
+            this.checkBoxIncludeSubfolders.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 406);
+            this.Controls.Add(this.checkBoxIncludeSubfolders);
+            this.Controls.Add(this.checkBoxFFileExtension);
+            this.Controls.Add(this.checkBoxOverwriteTarget);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxFileExtensions);
             this.Controls.Add(this.labelStatus);
@@ -227,7 +270,7 @@
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.ButtonSourceBrowse);
             this.Controls.Add(this.TextBoxSource);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "BatchEncode with HandBrake";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
@@ -254,6 +297,10 @@
         private System.Windows.Forms.Label labelStatus;
         internal System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox textBoxFileExtensions;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox checkBoxOverwriteTarget;
+        private System.Windows.Forms.CheckBox checkBoxFFileExtension;
+        private System.Windows.Forms.CheckBox checkBoxIncludeSubfolders;
     }
 }
 

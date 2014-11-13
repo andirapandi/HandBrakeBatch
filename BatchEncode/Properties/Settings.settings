@@ -12,7 +12,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="commandline" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-f mp4 -X 1024 -e x264 -q 20 -E faac -B 128</Value>
+      <Value Profile="(Default)">-f mp4 -X 1024 -e x264 -q 23 -E faac -B 128 -s "1,2,3,4,5", -m</Value>
     </Setting>
     <Setting Name="fileextensions" Type="System.String" Scope="User">
       <Value Profile="(Default)">.mp4,.wmv,.mkv,.mpeg</Value>
